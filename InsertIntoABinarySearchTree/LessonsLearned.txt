@@ -1,0 +1,6 @@
+Idea
+Recursively traverse nodes, stop and insert once you hit a null child.
+
+Lessons Learned
+null check needs to do a direct return, otherwise will hit the else case endlessly.
+Need to do root.left / root.right assignment, otherwise insertion at leaf won't work since the parent won't receive the childs root.
