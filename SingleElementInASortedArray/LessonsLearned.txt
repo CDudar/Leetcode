@@ -1,0 +1,14 @@
+Idea:
+Every list is odd length (2k pairs + 1 discrepant element)
+Every pair before the discrepant element has the first element at an even index and the second at an odd index
+Every pair after the discrepant element has the first element at an odd index and the second at an even index
+
+Needs to run in O log(n) time, so need to halve the search space every iteration.
+Mid will be at even or odd index, check neighbors to find out which direction we need to look for the discrepant element.
+
+Lessons Learned:
+Could have done a couple things better here:
+More elegant way to do high-low checks. I chose to do bounds checking on the indexes but if the while loop runs on condition low < high
+then loop will exit naturallly when element of interest is found.
+Since we always remove pairs the list stays at odd length. Knowing this we don't need to worry about out of bound exceptions
+as the lowest length list we will check neighbors for is length 3. Once low = high loop will exit.
