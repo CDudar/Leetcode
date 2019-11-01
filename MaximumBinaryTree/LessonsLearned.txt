@@ -1,0 +1,7 @@
+Idea:
+Find max, then recursively build children maximum trees with subarrays. Base case once list is empty
+
+Lessons Learned:
+Base case could have been at length 1, since both children are clearly null just return the single element
+Could have broken up into more functions to be more readable
+In max loop, only needed to find maxIdx. Could have used this to get max value later.
