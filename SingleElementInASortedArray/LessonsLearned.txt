@@ -1,3 +1,5 @@
+https://leetcode.com/problems/single-element-in-a-sorted-array/
+
 Idea:
 Every list is odd length (2k pairs + 1 discrepant element)
 Every pair before the discrepant element has the first element at an even index and the second at an odd index
