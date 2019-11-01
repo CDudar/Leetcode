@@ -1,0 +1,23 @@
+Idea:
+ * input: wages w1, w2, .... wn
+ * goal: earn as much as possible
+ * constraint: you cannot work 2 days in a row
+ * return: indexes of jobs to work
+
+
+
+Cannot either work day n or not work day n.
+If you work day n, work optimally amongst (n-2) days (exclude the n-1 day since you cannot work it)
+If you do not work day n, work optimally amongst (n-1) days.
+
+As you iterate, place subproblem solutions into 'optimal' list. Each kth index in optimal list represents the optimal wages that 
+can be earned up to that day.
+
+
+Printing solution:
+Take value at end of optimal list (n) and compare to previous day, 
+if equal than you did not choose to work day n, as it was more optimal to work yesterday, so do not print the index and recurse on the n-1 index.
+if not equal then you did choose to work day n, as it was more optimal than working yesterday, so print the nth index, but first recurse on the n-2 index.
+Base case will be 0th index or an out of bounds index. If out of bounds then just return. If 0th index simply print the index as we cannot go any further back in history.
+
+
