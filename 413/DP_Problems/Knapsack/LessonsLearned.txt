@@ -1,0 +1,22 @@
+Subproblem array needs dimensions (items + 1 x weights + 1), due to base case rows of zeroes. 
+Idea:
+At each index in the subproblem array, if the ith item can fit in the jth capacity, we choose between the following 2 values:  
+A) The value of not using the ith item and choosing optimally amongst the i - 1 items while maintaining current j capacity.
+
+B)  The value of using the ith item and losing some capacity (however much the ith item weighs),
+    then choosing optimally amongs i - 1 items and (j - ith item weight) capacity
+    
+    Whichever value is higher, we place this in the [i, j] index.
+    
+    
+    If the ith item cannot fit in the jth capacity, we default to the A) scenario (not using the item)
+   
+To print recursively, start at the max i, j  corner of the subproblem array.
+If the i - 1 value is the same we must have chosen not to use the ith item, so recurse on the i-1, jth index
+If the i - 1 value is not the same we must have chosen to use the ith item, so we will print it, but before printing recurse on the
+i - 1, (j - ith item weight) index 
+
+Note: In the actual code, whenever we have to reference the ith item in value or weights, we put i - 1 since the ith column is
+always 1 larger than the actual item we are currently "on" due to the base case rows. For example, row 1 of the array represents
+the the optimal values for the 0th item, at every jth capacity.
+
